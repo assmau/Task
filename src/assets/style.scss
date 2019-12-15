@@ -1,0 +1,88 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./common";
+@import "./variables";
+@import "./mixin";
+
+body {
+	background: $body-bg;
+
+.task {
+
+	.body-task {
+		background: $color-white;
+		border-radius: 5px;
+		border: 1px solid $border-gray;
+		height: 620px;
+		margin-bottom: 60px;
+
+		.collapse-scrolling {
+			max-height: 545px;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+
+		.buttons {
+			.play {
+				border-radius: 50%;
+				border: 1px solid $border-gray;
+				color: $color-green;
+			}
+
+			.success {
+				background: $button-gray;
+				color: $button-color;
+			}
+		}
+
+		.media {
+			.check {
+				font-size: 25px;
+			}
+		}
+
+		.media-body {
+			.item-vertical {
+				span {
+					vertical-align: super;
+				}
+			}
+
+			.badge {
+				&.badge-light {
+					background: $badge-light-color;
+					font-weight: 600;
+					padding: 7px;
+					border-radius: 13px;
+				}
+			}
+			.last-media  {
+				p {
+					&:first-child {
+					font-weight: 500;
+				}
+				}
+			}
+		}
+		.collapse {
+			&:hover {
+				background: $collapse-hover;
+				cursor: default;
+			}
+		}
+
+		.collapse-example {
+			a {
+				.fa {
+					@include transition(all .1s ease);
+				}
+			}
+		}
+		.collapsed {
+			.fa {
+				@include transform;
+				@include transition(all .1s ease);
+			}
+		}
+	}
+}
+}
