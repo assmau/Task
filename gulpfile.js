@@ -3,7 +3,8 @@ var gulp = require('gulp'),
 	  sass = require('gulp-sass'),
 	  rigger = require('gulp-rigger'),
     image = require('gulp-image'),
-    jquery = require('gulp-jquery');
+    jquery = require('gulp-jquery'),
+    webfont = require('gulp-webfont');
 
 
     gulp.task('watch', function () {
@@ -22,7 +23,7 @@ var gulp = require('gulp'),
 // Index
 
   gulp.task('default', function () {
-      gulp.src('/*.html')
+      gulp.src('./*.html')
           .pipe(rigger())
           .pipe(gulp.dest('dist/'));
   });
@@ -66,4 +67,17 @@ gulp.task('script:jquery', function () {
     gulp.src('src/**/*.js')
         .pipe(rigger())
         .pipe(gulp.dest('dist/'));
+});
+
+
+// WebFont
+var webfont_config = {
+    types:'eot,woff2,woff,ttf,svg',
+    ligatures: true
+};
+
+gulp.task('webfont', function () {
+  return gulp.src('./fonts/**')
+    .pipe(webfont(webfont_config))
+    .pipe(gulp.dest('dist/'));
 });
